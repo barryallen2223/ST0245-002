@@ -1,6 +1,6 @@
 import java.util.*;
-public class Permutation
-{
+public class Permutation{
+    
     public void PrintPermutations(String Method){
         ArrayList<String> Permutations = new ArrayList<String>();
         this.Permutate(Method, "", Permutations, 0);
@@ -35,7 +35,7 @@ public class Permutation
         return Write;
     }
     
-    public void Print(Object[] Printable, int Index){
+    private void Print(Object[] Printable, int Index){
         if(Index < Printable.length){
             System.out.println("[" + Printable[Index] + "]");
             Print(Printable, Index + 1);
