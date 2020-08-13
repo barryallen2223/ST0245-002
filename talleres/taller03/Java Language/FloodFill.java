@@ -2,51 +2,42 @@ public class FloodFill
 {
     
     /**
-     * Print the array
+     * Print the matrix
      */
     public void PrintFill(int[][] Figure, int Row, int Column, int Color){
-        this.Print(this.FloodFill(Figure, Row, Column, Color));
+        this.Print(this.CopyOfFloodFill(Figure, Row, Column, Color));
     }
     
     public int[][] Fill(int[][] Figure, int Row, int Column, int Color){
-        return this.FloodFill(Figure, Row, Column, Color);
+        return this.CopyOfFloodFill(Figure, Row, Column, Color);
     }
     
-    private int[][] FloodFill(int[][] Figure, int Row, int Column, int Color){
-        if( Color == Figure[Row][Column])
-        return Figure;
+    private int[][] CopyOfFloodFill(int[][] Figure, int Row, int Column, int Color){
+        if(Row < Figure.length && Column < Figure[Row].length){ 
+            if( Color == Figure[Row][Column])
+            return Figure;
+        } else return Figure;
         
-        int T = Figure[Row][Column];
+        int oldColor = Figure[Row][Column];
+        Figure[Row][Column] = Color;
+        
         if(Row < Figure.length-1){
-            if(Figure[Row][Column] == Figure[Row+1][Column]){
-                Figure[Row][Column] = Color;
-                FloodFill(Figure, Row + 1, Column, Color);
-                Figure[Row][Column] = T;
-            }
+            if(oldColor == Figure[Row+1][Column])
+            CopyOfFloodFill(Figure, Row + 1, Column, Color);
         }
         if(Column < Figure[Row].length-1){
-            if(Figure[Row][Column] == Figure[Row][Column+1]){
-                Figure[Row][Column] = Color;
-                FloodFill(Figure, Row, Column + 1, Color);
-                Figure[Row][Column] = T;
-            }
+            if(oldColor == Figure[Row][Column+1])
+            CopyOfFloodFill(Figure, Row, Column + 1, Color);
         }
         if(Row > 0){
-            if(Figure[Row][Column] == Figure[Row-1][Column]){
-                Figure[Row][Column] = Color;
-                FloodFill(Figure, Row - 1, Column, Color);
-                Figure[Row][Column] = T;
-            }
+            if(oldColor == Figure[Row-1][Column])
+            CopyOfFloodFill(Figure, Row - 1, Column, Color);
         }
         if(Column > 0){
-            if(Figure[Row][Column] == Figure[Row][Column-1]){
-                Figure[Row][Column] = Color;
-                FloodFill(Figure, Row, Column - 1, Color);
-                Figure[Row][Column] = T;
-            }
+            if(oldColor == Figure[Row][Column-1])
+            CopyOfFloodFill(Figure, Row, Column - 1, Color);
         }
         
-        Figure[Row][Column] = Color;
         return Figure;
     }
     
