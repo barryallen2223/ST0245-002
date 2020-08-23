@@ -3,18 +3,17 @@ import sys
 sys.setrecursionlimit(10**6)
 
 class FillRectangles():
-
-    def FillRectangle(self, forms):
-        return self.auxFill(forms, 0)**2 - 1
     
-    def auxFill(self, forms, swivel):
-        if forms > 1:
-            return self.auxFill(forms-2, swivel) + self.auxFill(forms-1, swivel)
-        return swivel + 1
+    def FillRectangle(self, total_cases):
+        if total_cases > 1:
+            return self.FillRectangle(total_cases-2) + self.FillRectangle(total_cases-1)
+        return 1
 
 def main():
+    
     com = FillRectangles()
-    print(com.FillRectangle(3))
+    total_cases = int(input())
+    print(com.FillRectangle(total_cases))
 
-if __name__=="__main__":
+if __name__ == '__main__':
     main()
