@@ -67,23 +67,23 @@ public class LongSubseqORDERED{
     
     public static void main(String[] args){
         
-        LongSubseq Prof = new LongSubseq();
+        LongSubseqORDERED Prof = new LongSubseqORDERED();
         
-        String first = "abg", second = "dsareisahgba";
-        int Start = 1, Loops= 1, Amount = 3;
+        String first = "abcdefghijklmnopqr", second = "rqponmlkjihgfedcba";
+        int Start = 1, Loops= first.length(), Amount = 1;
         
-        for (int Loop = Start; Loop <= Start+Loops; Loop++){
-            first = Prof.proofs(Loop*Amount, first);
+        for (int Loop = Start; Loop < Start+Loops; Loop++){
+            String ss = first.substring(0,first.length()-Loop);
+            String ff = second.substring(Loop);
             long start = System.currentTimeMillis();
             //second = Prof.proofs(Loop*Amount, second);
             //first = Prof.filter(first, second, "", 0);
-            second = Prof.filter(second, first, "", 0);
-            System.out.println(Prof.longSubseq(first, second));
+            ss = Prof.filter(ss, ff, "", 0);
+            ff = Prof.filter(ff, ss, "", 0);
+            Prof.longSubseq(ff, ss);
             long end = System.currentTimeMillis();
             long elapsedTime = end - start;
             System.out.println(elapsedTime);
-            first = "abghasierasd";
-            second = "dsareisahgba";
             //Xss in 2000: hasta 7000 chars de cada string.
         }
 
