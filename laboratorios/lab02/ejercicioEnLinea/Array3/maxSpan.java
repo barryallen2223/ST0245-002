@@ -13,6 +13,7 @@ public int saveLast(int[] nums, int[] cof){
       if(nums[pos] == nums[n]){
         cof[0] = Math.max(n - pos + 1, cof[0]);
         cof[1] = (cof[0] == n - pos + 1) ? n : cof[1];
+        break;
       }
     }
     
