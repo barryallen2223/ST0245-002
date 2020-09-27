@@ -38,7 +38,7 @@ public class Coords
         Coords c = new Coords();
         LinkedList<String> lista = 
         c.readFile("C:/Users/user/Documents/EAFIT/Semestre 2/Estructuras Datos y Algoritmos 1/medellin_colombia-grande.txt");
-        for(int i = 0 ; i < 10 ; i++){
+        for(int i = 0 ; i < lista.size() ; i++){
             System.out.println(lista.get(i));
         }
     }
