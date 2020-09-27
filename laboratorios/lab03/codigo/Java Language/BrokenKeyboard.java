@@ -30,6 +30,5 @@ public class BrokenKeyboard
         } else{
             System.out.println("Los strings son de diferente longitud");
         }
-        
     }
 }
