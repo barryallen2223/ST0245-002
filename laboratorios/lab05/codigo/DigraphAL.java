@@ -29,6 +29,14 @@ public class DigraphAL extends Digraph {
     public Node getHead(int position){
         return normalArray[position].getKey();
     }
+    
+    public LinkedList<Pair<Node, Double>> getLinky(int position){
+        return normalArray[position].getValue();
+    }
+    
+    public void setLinky(int position, LinkedList<Pair<Node, Double>> newLinky){
+        normalArray[position].setValue(newLinky);
+    }
 
     /**
     * Metodo para añadir un arco nuevo, donde se representa cada nodo con un entero
@@ -52,6 +60,20 @@ public class DigraphAL extends Digraph {
             normalArray[source.getNumber()].getValue().add(Pair.makePair(destination, weight));
         }
         
+    }
+    
+    public ArrayList<Node> getSuccessors(int vertex) {
+        ArrayList<Node> success = new ArrayList<>();
+        
+        if(normalArray[vertex] == null)
+            return null;
+        
+        for(int j = 0; j < normalArray[vertex].getValue().size(); j++){
+            if(normalArray[vertex].getValue().get(j).getValue() != 0){
+                success.add(0, normalArray[vertex].getValue().get(j).getKey());
+            }
+        }
+        return success;
     }
 
     /**
