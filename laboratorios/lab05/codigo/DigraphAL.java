@@ -108,7 +108,13 @@ public class DigraphAL extends Digraph {
     public Double getTime(Node source, Node destination) {
         if(source.getNumber() >= normalArray.length || destination.getNumber() >= normalArray.length || normalArray[source.getNumber()] == null)
         return 0.0;
-        return normalArray[source.getNumber()].getValue().get(destination.getNumber()).getValue();
+        
+        for(int i = 0; i < normalArray[source.getNumber()].getValue().size(); i++){
+            if(normalArray[source.getNumber()].getValue().get(i).getKey() == destination)
+                return normalArray[source.getNumber()].getValue().get(i).getValue();
+        }
+        
+        return 0.0;
     }
 
 }

@@ -1,8 +1,10 @@
+import java.util.*;
+
 public class Node
 {
     Integer number;
     boolean Car;
-    Double time;
+    ArrayList<Double> time;
     float k;
     
     public Node(){
@@ -19,7 +21,7 @@ public class Node
         this.k = 1;
     }
     
-    public Node(Double time){
+    public Node(ArrayList<Double> time){
         this.number = null;
         this.Car = false;
         this.time = time;
@@ -40,7 +42,7 @@ public class Node
         this.k = 1;
     }
     
-    public Node(boolean Car, Double time){
+    public Node(boolean Car, ArrayList<Double> time){
         this.number = null;
         this.Car = Car;
         this.time = time;
@@ -54,7 +56,7 @@ public class Node
         this.k = k;
     }
     
-    public Node(Double time, float k){
+    public Node(ArrayList<Double> time, float k){
         this.number = null;
         this.Car = false;
         this.time = time;
@@ -68,21 +70,21 @@ public class Node
         this.k = k;
     }
     
-    public Node(Double time, Integer number){
+    public Node(ArrayList<Double> time, Integer number){
         this.number = number;
         this.Car = false;
         this.time = time;
         this.k = 1;
     }
     
-    public Node(boolean Car, Double time, float k){
+    public Node(boolean Car, ArrayList<Double> time, float k){
         this.number = null;
         this.Car = Car;
         this.time = time;
         this.k = k;
     }
     
-    public Node(boolean Car, Double time, Integer number){
+    public Node(boolean Car, ArrayList<Double> time, Integer number){
         this.number = number;
         this.Car = Car;
         this.time = time;
@@ -96,14 +98,14 @@ public class Node
         this.k = k;
     }
     
-    public Node(Double time, float k, Integer number){
+    public Node(ArrayList<Double> time, float k, Integer number){
         this.number = null;
         this.Car = false;
         this.time = time;
         this.k = k;
     }
     
-    public Node(boolean Car, Double time, float k, Integer number){
+    public Node(boolean Car, ArrayList<Double> time, float k, Integer number){
         this.number = number;
         this.Car = Car;
         this.time = time;
@@ -134,11 +136,11 @@ public class Node
         return k;
     }
     
-    public void setTime(Double time){
+    public void setTime(ArrayList<Double> time){
         this.time = time;
     }
     
-    public Double getTime(){
+    public ArrayList<Double> getTime(){
         return this.time;
     }
 }

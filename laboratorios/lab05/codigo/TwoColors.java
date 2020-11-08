@@ -17,12 +17,15 @@ public class TwoColors
         blue.add(Start);
         
         for(int i = 0; i < graph.size(); i++){
+            
+            Node act = graph.getHead(i);
+            
             for(Node j : graph.getSuccessors(i)){
-                if(blue.contains(j)){
+                if(blue.contains(act)){
                     if(red.contains(j))
                         return false;
                     red.add(j);
-                } else if(red.contains(j)){
+                } else if(red.contains(act)){
                     if(blue.contains(j))
                         return false;
                     blue.add(j);
