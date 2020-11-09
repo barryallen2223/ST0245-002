@@ -26,6 +26,16 @@ public class DigraphAL extends Digraph {
             normalArray[position].setKey(newHead);
     }
     
+    public ArrayList<Node> getAllHeads(){
+        ArrayList<Node> AllHeads = new ArrayList<>(size);
+        
+        for(int i = 0; i < size; i++){
+            AllHeads.add(this.getHead(i));
+        }
+        
+        return AllHeads;
+    }
+    
     public Node getHead(int position){
         return normalArray[position].getKey();
     }

@@ -4,7 +4,7 @@ public class Node
 {
     Integer number;
     boolean Car;
-    ArrayList<Double> time;
+    ArrayList<Pair<Node, Double>> time;
     float k;
     
     public Node(){
@@ -21,7 +21,7 @@ public class Node
         this.k = 1;
     }
     
-    public Node(ArrayList<Double> time){
+    public Node(ArrayList<Pair<Node, Double>> time){
         this.number = null;
         this.Car = false;
         this.time = time;
@@ -42,7 +42,7 @@ public class Node
         this.k = 1;
     }
     
-    public Node(boolean Car, ArrayList<Double> time){
+    public Node(boolean Car, ArrayList<Pair<Node, Double>> time){
         this.number = null;
         this.Car = Car;
         this.time = time;
@@ -56,7 +56,7 @@ public class Node
         this.k = k;
     }
     
-    public Node(ArrayList<Double> time, float k){
+    public Node(ArrayList<Pair<Node, Double>> time, float k){
         this.number = null;
         this.Car = false;
         this.time = time;
@@ -70,21 +70,21 @@ public class Node
         this.k = k;
     }
     
-    public Node(ArrayList<Double> time, Integer number){
+    public Node(ArrayList<Pair<Node, Double>> time, Integer number){
         this.number = number;
         this.Car = false;
         this.time = time;
         this.k = 1;
     }
     
-    public Node(boolean Car, ArrayList<Double> time, float k){
+    public Node(boolean Car, ArrayList<Pair<Node, Double>> time, float k){
         this.number = null;
         this.Car = Car;
         this.time = time;
         this.k = k;
     }
     
-    public Node(boolean Car, ArrayList<Double> time, Integer number){
+    public Node(boolean Car, ArrayList<Pair<Node, Double>> time, Integer number){
         this.number = number;
         this.Car = Car;
         this.time = time;
@@ -98,14 +98,14 @@ public class Node
         this.k = k;
     }
     
-    public Node(ArrayList<Double> time, float k, Integer number){
+    public Node(ArrayList<Pair<Node, Double>> time, float k, Integer number){
         this.number = null;
         this.Car = false;
         this.time = time;
         this.k = k;
     }
     
-    public Node(boolean Car, ArrayList<Double> time, float k, Integer number){
+    public Node(boolean Car, ArrayList<Pair<Node, Double>> time, float k, Integer number){
         this.number = number;
         this.Car = Car;
         this.time = time;
@@ -124,7 +124,7 @@ public class Node
         this.Car = Car;
     }
     
-    public Object getCar(){
+    public boolean getCar(){
         return Car;
     }
     
@@ -136,11 +136,11 @@ public class Node
         return k;
     }
     
-    public void setTime(ArrayList<Double> time){
+    public void setTime(ArrayList<Pair<Node, Double>> time){
         this.time = time;
     }
     
-    public ArrayList<Double> getTime(){
+    public ArrayList<Pair<Node, Double>> getTime(){
         return this.time;
     }
 }
