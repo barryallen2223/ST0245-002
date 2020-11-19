@@ -7,16 +7,19 @@ import time
 import psutil
 import pydoc
 
-"""
-Clase utilizada para la lectura de archivos y su filtrado.
-"""
+
 class ReadFile:
 
     """
-    Constructor, que asigna el valor de la ruta y el signo separador del archivo csvType a message.
+    Clase utilizada para la lectura de archivos y su filtrado.
     """
+    
     def __init__(self, *args):
-        
+
+        """
+        Constructor que asigna el valor de la ruta y el signo separador del archivo csv.
+        """
+
         if len(args) == 2:
             self.path = args[0]
             self.separator = args[1]
@@ -25,10 +28,12 @@ class ReadFile:
         elif len(args) == 1:
             self.dataset = args[0]
         
-    """
-    Método que lee un archivo csv con la ruta indicada en los parámetros y retorna las listas datasets, headers, success.
-    """
+    
     def read_file(self):
+
+        """
+        Método que lee un archivo csv con la ruta indicada en los parámetros y retorna un dataframe filtrado.
+        """
 
         # Separa y guarda en un frame la información del archivo.
         data = pd.read_csv(self.path, sep=self.separator)
@@ -41,37 +46,42 @@ class ReadFile:
 
         self.dataset = dataset
 
-
-path = 'proof2.csv'
-separator = ";"
+pth = 'proof.csv'
 
 """
 Dataset: Dataframe de los elementos leídos y globales.
 Headers: Títulos de cada columna de Dataset.
 """
-Dataset = ReadFile(path, separator).dataset
+
+Dataset = ReadFile(pth, ";").dataset
 Headers = list(Dataset)
 
-"""
-Permite cambiar la base de datos y sus títulos.
-"""
 def setDs(rf):
+    
+    """
+    Permite cambiar la base de datos y el título de las columnas.
+    rf: Nuevo readfile.
+    """
+
     global Dataset
     Dataset = rf.dataset
     global Headers
     Headers = list(Dataset)
 
-"""
-Utiliza métodos variados para que cualquier otra clase pueda acceder a ellos.
-"""
+
 class Miscelaneous:
 
     """
-    Toma los índices del dataset principal. Servirá para acoger el código a la partición/pérdida de algunos índices.
-    :param start: Indice de inicio del llenado de la cola.
-    :param end: Indice final del llenado de la cola
+    Utiliza métodos variados para que cualquier otra clase pueda acceder a ellos.
     """
+    
     def fill_rows(self, start, end):
+
+        """
+        Toma los índices del dataset principal. Servirá para acoger el código a la partición/pérdida de algunos índices.
+        start: Indice de inicio del llenado de la cola.
+        end: Indice final del llenado de la cola
+        """
 
         i_list = deque()
 
@@ -81,20 +91,25 @@ class Miscelaneous:
         return i_list
     
     # Complejidad O(1).
-    """
-    Pregunta si un valor que se le pasa es tipo numérico.
-    :param value: Valor de comparación.
-    """
+    
     def is_numeric(self, value):
+
+        """
+        Pregunta si un valor que se le pasa es tipo numérico.
+        :param value: Valor de comparación.
+        """
+
         return isinstance(value, int) or isinstance(value, float)
 
     # Complejidad O(m).
-    """
-    Encuentra el promedio de una cola.
-    :param data: Elementos a promediar.
-    """
+    
     def find_average(self, data):
-        
+
+        """
+        Encuentra el promedio de una cola.
+        :param data: Elementos a promediar.
+        """
+
         aver = 0
 
         for date in data:
@@ -103,12 +118,14 @@ class Miscelaneous:
         return aver / len(data)
 
     # Complejidad O(1).
-    """
-    Encuentra si dos valores son iguales o si uno contiene al otro.
-    :param possible_values: Contenedor de los valores aceptados.
-    :param value: Valor a buscar.
-    """
+    
     def match(self, possible_values, value):
+
+        """
+        Encuentra si dos valores son iguales o si uno contiene al otro.
+        possible_values: Contenedor de los valores aceptados.
+        value: Valor a buscar.
+        """
 
         if self.is_numeric(value):
             if isinstance(possible_values, float) or isinstance(possible_values, int):
@@ -121,23 +138,28 @@ class Miscelaneous:
             else:
                 return self.contains(possible_values, value)
 
-    
     # Complejidad O(m)
-    """
-    Retorna los únicos posibles valores de una columna en un frame como lista.
-    :param dataframe: Dataframe al que pertenece una columna a convertir.
-    :param column: Columna a convertir.
-    """
+    
     def unique_values(self, dataframe, column):
+
+        """
+        Retorna los únicos posibles valores de una columna en un frame como lista.
+        dataframe: Dataframe al que pertenece una columna a convertir.
+        column: Columna a convertir.
+        """
+
         return list(dataframe[Headers[column]].unique())
 
     # Para los usos que le damos a contains, es O(1), ya que el tamaño no es mayor a 5.
-    """
-    Busca si en una base de datos se encuentra el valor deseado.
-    :param dataset: Base de datos en la que se busca.
-    :param value: Valor a buscar.
-    """
+    
     def contains(self, dataset, value):
+
+        """
+        Busca si en una base de datos se encuentra el valor deseado.
+        dataset: Base de datos en la que se busca.
+        value: Valor a buscar.
+        """
+
         for data in dataset:
             if data == value:
                 return True
@@ -145,11 +167,13 @@ class Miscelaneous:
         return False
 
     # Complejidad O(m) [El tamaño de 15,7 nunca cambiará].
-    """
-    Genera los valores con los que se encontrará posteriormente la impureza de Gini.
-    """
+    
     def values_generator(self):
-        
+
+        """
+        Genera los valores con los que se encontrará posteriormente la impureza de Gini.
+        """
+
         values = [['BOGOTA', 'ANTIOQUIA', 'BOYACA'], ['Madera pulida, baldosa, tableta, mármol, alfombra'], ['ACADEMICO', 'TECNICO/ACADEMICO']]
         
       # for aver in range(7,15):
@@ -161,12 +185,14 @@ class Miscelaneous:
         return values
 
     # Complejidad O(m*n). Con stack sería O(m).
-    """
-    Divide una cola en dos nuevas las cuales tendrán los datos que sean iguales a una condición deseada.
-    :param dataset_indices: Cola a separar.
-    :param question: Pregunta o decisión con la cual se separarán los datos.
-    """
+    
     def split_matrix(self, dataset_indices, question):
+
+        """
+        Divide una cola en dos nuevas las cuales tendrán los datos que sean iguales a una condición deseada.
+        dataset_indices: Cola a separar.
+        question: Pregunta o decisión con la cual se separarán los datos.
+        """
 
         if not isinstance(dataset_indices, deque):
             dataset_indices = dataset_indices.values.tolist()
@@ -182,10 +208,12 @@ class Miscelaneous:
         return t_rows, f_rows
 
     # Complejidad O(1).
-    """
-    Devuelve todos los valores que se guardan en la generación de llaves del diccionario con las posibles colas a partir.
-    """
+    
     def get_keys(self):
+
+        """
+        Devuelve todos los valores que se guardan en la generación de llaves del diccionario con las posibles colas a partir.
+        """
 
         keys = []
         vals = self.values_generator()
@@ -202,13 +230,15 @@ class Miscelaneous:
         return keys
 
     # Complejidad O(m*n), m número de elementos en el datatest y n número de variables.
-    """
-    Predice con respecto a unas condiciones si los elementos en una base de datos fueron bien elegidos o no.
-    :param Dataset: Base de datos para la comparación.
-    :param tree: Tiene las condiciones y las probabilidades de éxito.
-    :param random: Método que se utilizará para escoger si un estudiante es exitoso o no.
-    """
+    
     def successful(self, Dataset, tree, random):
+
+        """
+        Predice con respecto a unas condiciones si los elementos en una base de datos fueron bien elegidos o no.
+        Dataset: Base de datos para la comparación.
+        tree: Tiene las condiciones y las probabilidades de éxito.
+        random: Método que se utilizará para escoger si un estudiante es exitoso o no.
+        """
 
         suc = deque()
 
@@ -221,13 +251,15 @@ class Miscelaneous:
         return suc
 
     # Complejidad O(n), n número de variables.
-    """
-    Auxiliar en el cual los éxitos son aleatorios dentro de un intervalo.
-    :param row: Fila a la cual se le revisará si fue exitoso.
-    :param tree: Árbol con las condiciones de predicción.
-    :param success: Elementos ya conocidos sobre si un estudiante fue exitoso o no.
-    """
+    
     def rand_success(self, row, tree, success):
+
+        """
+        Auxiliar en el cual los éxitos son aleatorios dentro de un intervalo.
+        row: Fila a la cual se le revisará si fue exitoso.
+        tree: Árbol con las condiciones de predicción.
+        success: Elementos ya conocidos sobre si un estudiante fue exitoso o no.
+        """
 
         if isinstance(tree, Leaf):
 
@@ -243,13 +275,15 @@ class Miscelaneous:
             self.rand_success(row, tree.false_branch, success)
 
     # Complejidad O(n), n número de variables
-    """
-    Auxiliar en el cual los éxitos son determinísticos por un índice.
-    :param row: Fila a la cual se le revisará si fue exitoso.
-    :param tree: Árbol con las condiciones de predicción.
-    :param success: Elementos ya conocidos sobre si un estudiante fue exitoso o no.
-    """
+    
     def not_rand_success(self, row, tree, success):
+
+        """
+        Auxiliar en el cual los éxitos son determinísticos por un índice.
+        row: Fila a la cual se le revisará si fue exitoso.
+        tree: Árbol con las condiciones de predicción.
+        success: Elementos ya conocidos sobre si un estudiante fue exitoso o no.
+        """
 
         if isinstance(tree, Leaf):
             if tree.success >= 0.5:
@@ -264,12 +298,14 @@ class Miscelaneous:
             self.not_rand_success(row, tree.false_branch, success)
             
     # Complejidad O(m), m número de datos en el testing.
-    """
-    Exactitud, Precisión y Sensibilidad del modelo.
-    :param threw_val: Valores predichos por un árbol.
-    :param real_val: Valores reales de un dataframe.
-    """
+    
     def exact_precis_sensib(self, threw_val, real_val):
+
+        """
+        Exactitud, Precisión y Sensibilidad del modelo.
+        threw_val: Valores predichos por un árbol.
+        real_val: Valores reales de un dataframe.
+        """
 
         f_pos = 0
         f_neg = 0
@@ -296,23 +332,29 @@ misc = Miscelaneous()
 
 ValuesGen = misc.values_generator()
 
-"""
-Generador de la impureza de Gini.
-"""
 class Gini:
-    
+
+    """
+    Generador de la impureza de Gini.
+    """
+
     # Debido al cambio al método fill_rows, esto es actualmente una cola.
-    """
-    Constructor
-    """
+    
     def __init__(self):
+
+        """
+        Constructor.
+        """
+
         self.rows_data = misc.fill_rows(0, len(Dataset[Headers[-1]]))
 
     # Complejidad O(m)
-    """
-    Retorna en un diccionario todos los posibles valores a los que se puede llegar con respecto a unos datos y su frecuencia.
-    """
+    
     def class_counts(self, *args):
+
+        """
+        Retorna en un diccionario todos los posibles valores a los que se puede llegar con respecto a unos datos y su frecuencia.
+        """
 
         counts = {}
         possible_values = []
@@ -390,10 +432,12 @@ class Gini:
         return counts
 
     # Complejidad O(m)
-    """
-    Encuentra la probabilidad de no clasificar correctamente a un estudiante. args[0]: Indices del dataset, args[1]: Posición del dataset, args[2]: Subconjunto del dataset aceptable.
-    """
+    
     def find_gini(self, *args):
+
+        """
+        Encuentra la probabilidad de no clasificar correctamente a un estudiante. args[0]: Indices del dataset, args[1]: Posición del dataset, args[2]: Subconjunto del dataset aceptable.
+        """
 
         if len(args) == 0:
             counts = self.class_counts()
@@ -417,11 +461,13 @@ class Gini:
         return impurity
     
     # Complejidad O(m).
-    """
-    Define la ganancia de Gini.
-    """
+    
     def info_gain(self, *args):
-        
+
+        """
+        Define la ganancia de Gini.
+        """
+
         prob = float(len(args[0])) / (len(args[0]) + len(args[1]))
 
         if len(args) == 3:
@@ -429,10 +475,12 @@ class Gini:
         elif len(args) == 5:
             return args[2] - prob * self.find_gini(args[0], args[3], args[4]) - (1 - prob) * self.find_gini(args[1], args[3], args[4])
     
-    """
-    Define la mejor variable a usar como condición.
-    """
+    
     def find_best_gini(self, *args):
+
+        """
+        Define la mejor variable a usar como condición.
+        """
 
         if len(args) == 0:
             indices = self.rows_data
@@ -464,10 +512,12 @@ class Gini:
         return best_gini, best_question
     
     # Complejidad O(m).
-    """
-    Arregla la impureza en caso simple.
-    """
+    
     def fix_rows(self, t_rows, f_rows):
+
+        """
+        Arregla la impureza en caso simple.
+        """
 
         true_rows, false_rows = deque(), deque()
 
@@ -485,12 +535,14 @@ class Gini:
         
         return true_rows, false_rows
     
-    # O(mn**2) Debido al uso de listas.
-    """
-    Encuentra la mejor forma de repartir la información.
-    """
+    # O(mn) Debido al uso de listas.
+    
     def find_best_split(self, *args):
-        
+
+        """
+        Encuentra la mejor forma de repartir la información.
+        """
+
         if len(args) == 0:
             data = self.rows_data
         else:
@@ -516,15 +568,20 @@ class Gini:
             if gain >= best_gain:
                 best_gain, best_question = gain, qs
         
-        # print(best_gain, best_question)
         return best_gain, best_question
 
-"""
-Define la mejor pregunta.
-"""
+
 class Question:
 
+    """
+    Define la mejor pregunta.
+    """
+
     def __init__(self, *args):
+
+        """
+        Constructor. Acepta dos argumentos, los cuales son una pregunta y la columna en la cual se encuentra la pregunta.
+        """
 
         if len(args) == 2:
             #column [numero]: Columna de la matriz con la que se trabaja.
@@ -532,11 +589,14 @@ class Question:
             #value: Valor de la columna con la que se hará la pregunta.
             # Se debe aceptar que pueda ser un arreglo para el caso de string, así tener varias posibilidades. 
             self.value = args[1]
-
-    # Con respecto a una matriz, determina si el nuevo valor es igual al valor deseado.
-    # row_to_work: Fila con la cual se va a trabajar (La columna ya es conocida por el constructor).
+    
     # Complejidad O(1)
     def match(self, row_to_work):
+
+        """
+        Con respecto a una matriz, determina si el nuevo valor es igual al valor deseado.
+        row_to_work: Fila con la cual se va a trabajar (La columna ya es conocida por el constructor).
+        """
 
         the_value = row_to_work[self.column]
         if misc.is_numeric(the_value):
@@ -550,22 +610,32 @@ class Question:
             else:
                 return misc.contains(self.value, the_value)
     
-    # Imprime la pregunta.
+    
     def __repr__(self):
 
+        """
+        Imprime la pregunta.
+        """
+        
         condition = ">="
         if not misc.is_numeric(self.value):
             condition = "=="
 
         return "Is %s %s %s?" % (Headers[self.column], condition, str(self.value))
 
-"""
-Define la predicción de éxito.
-"""
+
 class Leaf:
 
-    #Guarda la cantidad de personas que pasaron y las que no.
+    """
+    Define la predicción de éxito.
+    """
+
     def __init__(self, positions_of_a_dataset, question):
+
+        """
+        Guarda la cantidad de personas que pasaron y las que no.
+        """
+
         gn = Gini()
         self.predictions = gn.class_counts(positions_of_a_dataset)
 
@@ -578,30 +648,59 @@ class Leaf:
             elif list(self.predictions.keys()) == [1]:
                 self.success = 1
 
-"""
-Define los nodos de decisión.
-"""
+
 class Node:
 
-    #Nodo de decisión: Está hecho para guardar solamente una pregunta y los hijos.
+    """
+    Define los nodos de decisión.
+    Nodo de decisión: Está hecho para guardar solamente una pregunta y los hijos.
+    """
+
     def __init__(self, question, true_branch, false_branch):
+
+        """
+        Constructor.
+        question: Pregunta con la cual se generará la condición.
+        true_branch: Datos que cumplen con la condición.
+        false_branch: Datos que no cumplen con la condición.
+        """
+
         self.question, self.true_branch, self.false_branch = question, true_branch, false_branch
 
-"""
-Generador de árbol.
-"""
+
 class Tree:
 
+    """
+    Generador de árbol.
+    """
+
     def __init__(self, height):
+
+        """
+        Constructor.
+        height: Altura máxima del árbol.
+        """
+
         self.current = Node
         self.height = height
         
     def Tree(self, indices):
 
+        """
+        Crea el árbol.
+        indices: Filas iniciales del árbol.
+        """
+
         limit = self.height
         return self.auxTree(indices, limit)
 
     def auxTree(self, indices, limit):
+
+        """
+        Auxiliar de la creación del árbol.
+        indices: Filas actuales del nodo.
+        limit: Altura máxima.
+        """
 
         gn = Gini()
 
@@ -624,10 +723,22 @@ class Tree:
     
     #El nodo inicial es el árbol que se crea a través de la fn. Tree.
     def TreeToList(self, node):
+
+        """
+        Toma un árbol o nodo inicial para generar una matriz con sus datos.
+        node: Árbol o nodo inicial.
+        """
+
         list_nodes = []
         return self.auxTTL(node, list_nodes)
 
     def auxTTL(self, node, list_nodes):
+
+        """
+        Auxiliar de TreeToList.
+        node: Nodo inicial.
+        list_nodes: Lista con todos los nodos de un árbol.
+        """
 
         if isinstance(node, Leaf):
             list_nodes.append(node)
@@ -638,28 +749,33 @@ class Tree:
         
         return list_nodes
     
-    def getAlgorithmSuccess(self, list_nodes):
+    # def getAlgorithmSuccess(self, list_nodes):
         
-        success = 0
-        fail = 0
+    #     success = 0
+    #     fail = 0
 
-        for dictionary in list_nodes:
-            d_val = list(dictionary.predictions.values())
+    #     for dictionary in list_nodes:
+    #         d_val = list(dictionary.predictions.values())
 
-            if len(d_val) == 1:
-                success += d_val[0]
-                continue
+    #         if len(d_val) == 1:
+    #             success += d_val[0]
+    #             continue
 
-            if d_val[0] >= d_val[1]:
-                success += d_val[0]
-                fail += d_val[1]
-            else:
-                success += d_val[1]
-                fail += d_val[0]
+    #         if d_val[0] >= d_val[1]:
+    #             success += d_val[0]
+    #             fail += d_val[1]
+    #         else:
+    #             success += d_val[1]
+    #             fail += d_val[0]
         
-        return success / (fail + success), fail / (fail + success)
+    #     return success / (fail + success), fail / (fail + success)
 
     def print_tree(self, node, spacing=""):
+
+        """
+        Imprime un árbol.
+        node: Nodo inicial.
+        """
 
         # Base case: we've reached a leaf
         if isinstance(node, Leaf):
@@ -673,47 +789,56 @@ class Tree:
         print ('--> if False:')
         self.print_tree(node.false_branch, spacing + "  ")
 
-    def save_tree(self, node):
+    # def save_tree(self, node):
 
-        toprint = []
+    #     toprint = []
 
-        list_of_nodes = deque()
-        list_of_nodes = self.aux_save_tree(node, list_of_nodes)
+    #     list_of_nodes = deque()
+    #     list_of_nodes = self.aux_save_tree(node, list_of_nodes)
 
-        for nod in list_of_nodes:
+    #     for nod in list_of_nodes:
 
-            if isinstance(nod, Leaf):
-                toprint.append(nod.success)
-            else:
-                t = str(nod.question.column) + ":" + str(nod.question.value)
-                toprint.append(t)
+    #         if isinstance(nod, Leaf):
+    #             toprint.append(nod.success)
+    #         else:
+    #             t = str(nod.question.column) + ":" + str(nod.question.value)
+    #             toprint.append(t)
         
-        f = open('t1.txt', 'wb')
-        for i in range(len(toprint)):
-            if isinstance(toprint[i], float) or isinstance(toprint[i], int):
-                f.write("%1.4f\n" % (toprint[i]))
-            else:
-                f.write("%s\n" % (' '.join(format(ord(x), 'b') for x in toprint[i])))
-        f.close()
+    #     f = open('t1.txt', 'wb')
+    #     for i in range(len(toprint)):
+    #         if isinstance(toprint[i], float) or isinstance(toprint[i], int):
+    #             f.write("%1.4f\n" % (toprint[i]))
+    #         else:
+    #             f.write("%s\n" % (' '.join(format(ord(x), 'b') for x in toprint[i])))
+    #     f.close()
 
-    def aux_save_tree(self, node, list_of_nodes):
+    # def aux_save_tree(self, node, list_of_nodes):
 
-        list_of_nodes.append(node)
+    #     list_of_nodes.append(node)
 
-        if isinstance(node, Leaf):
-            return
-        else:
-            self.aux_save_tree(node.false_branch, list_of_nodes)
-            self.aux_save_tree(node.true_branch, list_of_nodes)
+    #     if isinstance(node, Leaf):
+    #         return
+    #     else:
+    #         self.aux_save_tree(node.false_branch, list_of_nodes)
+    #         self.aux_save_tree(node.true_branch, list_of_nodes)
         
-        return list_of_nodes
+    #     return list_of_nodes
 
-"""
-Crea el dataframe para probar un árbol.
-"""
+
 class BackTesting:
 
+    """
+    Crea el dataframe necesario para probar un árbol.
+    """
+
     def __init__(self, path, train_tree):
+
+        """
+        Constructor para la creación del dataframe.
+        path: Lugar del computador en el que están los datos.
+        train_tree: Árbol de entrenamiento.
+        """
+
         rf = ReadFile(path, ";")
         self.dataset_to_prove = rf.dataset
         self.train_tree = train_tree
@@ -722,7 +847,6 @@ class BackTesting:
 
 def main():
 
-    # h = hpy()
     train_files = ['/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/0_train_balanced_15000.csv', '/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/1_train_balanced_45000.csv', '/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/2_train_balanced_75000.csv', '/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/3_train_balanced_105000.csv', '/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/4_train_balanced_135000.csv']
 
     # test_files = ['/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/0_test_balanced_5000.csv', '/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/1_test_balanced_15000.csv', '/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/2_test_balanced_25000.csv', '/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/3_test_balanced_35000.csv', '/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/4_test_balanced_45000.csv']
@@ -805,62 +929,6 @@ def main():
         print('END TEST OF DATASET', pos)
         print('__________________________________________________________________')
         print('__________________________________________________________________')
-
-# def main():
-    
-#     # print(misc.get_keys())
-
-#     # for pos in range(1,7):
-#     #     st = time.time()
-#     #     t = Tree(pos)
-#     #     my_tree = t.Tree(gn.rows_data)
-#     #    # t.print_tree(my_tree)
-#     #     print("_______END________")
-#     #     m = t.TreeToList(my_tree)
-#     #     print(t.height)
-#     #     print(t.getAlgorithmSuccess(m))
-#     #     end = time.time()
-#     #     print(end-st)
-#     #     mt.append(end-st)
-
-#     # # #Método para hallar los valores del dataset
-#     # files = ['/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/3_train_balanced_105000.csv', '/home/salvarezo1/Documents/Documentos Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto Final/Código 2/4_train_balanced_135000.csv']
-
-#     # for fl in files:
-        
-#     #     mt = []
-        
-#     #     for _ in range(0,3):
-
-#     #         st = time.time()
-#     #         rf = ReadFile(fl, ";")
-#     #         setDs(rf)
-#     #         gn = Gini()
-#     #         t = Tree(6)
-#     #         my_tree = t.Tree(gn.rows_data)
-#     #         print("________END________")
-#     #         m = t.TreeToList(my_tree)
-#     #         print(t.height)
-#     #         print(t.getAlgorithmSuccess(m))
-#     #         end = time.time()
-#     #         mt.append(end-st)
-        
-#     #     print(psutil.virtual_memory())
-
-#     #     c = 0
-
-#     #     for v in mt:
-#     #         print(c, ";", v)
-#     #         c += 1
-
-#     t = Tree(5)
-#     gn = Gini()
-#     tri = t.Tree(gn.rows_data)
-#     ls = deque()
-#     t.aux_save_tree(tri, ls)
-#     print(ls)
-#     t.save_tree(tri)
-    
     
 if __name__=='__main__':
     main()
