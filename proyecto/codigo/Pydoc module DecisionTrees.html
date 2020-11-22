@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Pydoc: module DecisionTrees</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="Pydoc%20module%20DecisionTrees_files/_pydoc.css"></head><body bgcolor="#f0f0f8">
+            <div style="float:left">
+                Python 3.8.5 [default, GCC 9.3.0]<br>Linux-5.4.0-53-generic-x86_64-with-glibc2.29
+            </div>
+            <div style="float:right">
+                <div style="text-align:center">
+                  <a href="http://localhost:1234/index.html">Module Index</a>
+                  : <a href="http://localhost:1234/topics.html">Topics</a>
+                  : <a href="http://localhost:1234/keywords.html">Keywords</a>
+                </div>
+                <div>
+                    <form action="get" style="display:inline;">
+                      <input type="text" name="key" size="15">
+                      <input type="submit" value="Get">
+                    </form>&nbsp;
+                    <form action="search" style="display:inline;">
+                      <input type="text" name="key" size="15">
+                      <input type="submit" value="Search">
+                    </form>
+                </div>
+            </div>
+            <div style="clear:both;padding-top:.5em;">
+<table summary="heading" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#7799ee">
+<td valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#ffffff">&nbsp;<br><big><big><strong>DecisionTrees</strong></big></big></font></td><td valign="bottom" align="right"><font face="helvetica, arial" color="#ffffff"><a href="http://localhost:1234/">index</a><br><a href="http://localhost:1234/getfile?key=/home/salvarezo1/Documents/Documentos%20Universidad/Semestre%202/Estructura%20Datos%20y%20Algoritmos%201/Proyecto%20Final/C%C3%B3digo%202/DecisionTrees.py">/home/salvarezo1/Documents/Documentos
+ Universidad/Semestre 2/Estructura Datos y Algoritmos 1/Proyecto 
+Final/Código 2/DecisionTrees.py</a></font></td></tr></tbody></table>
+    <p></p>
+<p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#aa55cc">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#ffffff"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table summary="list" width="100%"><tbody><tr><td width="25%" valign="top"><a href="http://localhost:1234/array.html">array</a><br>
+<a href="http://localhost:1234/numpy.html">numpy</a><br>
+</td><td width="25%" valign="top"><a href="http://localhost:1234/pandas.html">pandas</a><br>
+<a href="http://localhost:1234/psutil.html">psutil</a><br>
+</td><td width="25%" valign="top"><a href="http://localhost:1234/pydoc.html">pydoc</a><br>
+<a href="http://localhost:1234/random.html">random</a><br>
+</td><td width="25%" valign="top"><a href="http://localhost:1234/time.html">time</a><br>
+</td></tr></tbody></table></td></tr></tbody></table></p><p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#ee77aa">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#ffffff"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="http://localhost:1234/builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="http://localhost:1234/DecisionTrees.html#BackTesting">BackTesting</a>
+</font></dt><dt><font face="helvetica, arial"><a href="http://localhost:1234/DecisionTrees.html#Gini">Gini</a>
+</font></dt><dt><font face="helvetica, arial"><a href="http://localhost:1234/DecisionTrees.html#Leaf">Leaf</a>
+</font></dt><dt><font face="helvetica, arial"><a href="http://localhost:1234/DecisionTrees.html#Miscelaneous">Miscelaneous</a>
+</font></dt><dt><font face="helvetica, arial"><a href="http://localhost:1234/DecisionTrees.html#Node">Node</a>
+</font></dt><dt><font face="helvetica, arial"><a href="http://localhost:1234/DecisionTrees.html#Question">Question</a>
+</font></dt><dt><font face="helvetica, arial"><a href="http://localhost:1234/DecisionTrees.html#ReadFile">ReadFile</a>
+</font></dt><dt><font face="helvetica, arial"><a href="http://localhost:1234/DecisionTrees.html#Tree">Tree</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#ffc8d8">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#000000"><a name="BackTesting">class <strong>BackTesting</strong></a>(<a href="http://localhost:1234/builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan="2"><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan="2"><tt><a href="#BackTesting">BackTesting</a>(path,&nbsp;train_tree)<br>
+&nbsp;<br>
+Crea&nbsp;el&nbsp;dataframe&nbsp;necesario&nbsp;para&nbsp;probar&nbsp;un&nbsp;árbol.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BackTesting-__init__"><strong>__init__</strong></a>(self, path, train_tree)</dt><dd><tt>Constructor&nbsp;para&nbsp;la&nbsp;creación&nbsp;del&nbsp;dataframe.<br>
+path:&nbsp;Lugar&nbsp;del&nbsp;computador&nbsp;en&nbsp;el&nbsp;que&nbsp;están&nbsp;los&nbsp;datos.<br>
+train_tree:&nbsp;Árbol&nbsp;de&nbsp;entrenamiento.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></tbody></table> </p><p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#ffc8d8">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#000000"><a name="Gini">class <strong>Gini</strong></a>(<a href="http://localhost:1234/builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan="2"><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan="2"><tt>Generador&nbsp;de&nbsp;la&nbsp;impureza&nbsp;de&nbsp;<a href="#Gini">Gini</a>.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Gini-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Constructor.</tt></dd></dl>
+
+<dl><dt><a name="Gini-class_counts"><strong>class_counts</strong></a>(self, *args)</dt><dd><tt>Retorna&nbsp;en&nbsp;un&nbsp;diccionario&nbsp;todos&nbsp;los&nbsp;posibles&nbsp;valores&nbsp;a&nbsp;los&nbsp;que&nbsp;se&nbsp;puede&nbsp;llegar&nbsp;con&nbsp;respecto&nbsp;a&nbsp;unos&nbsp;datos&nbsp;y&nbsp;su&nbsp;frecuencia.</tt></dd></dl>
+
+<dl><dt><a name="Gini-find_best_gini"><strong>find_best_gini</strong></a>(self, *args)</dt><dd><tt>Define&nbsp;la&nbsp;mejor&nbsp;variable&nbsp;a&nbsp;usar&nbsp;como&nbsp;condición.</tt></dd></dl>
+
+<dl><dt><a name="Gini-find_best_split"><strong>find_best_split</strong></a>(self, *args)</dt><dd><tt>Encuentra&nbsp;la&nbsp;mejor&nbsp;forma&nbsp;de&nbsp;repartir&nbsp;la&nbsp;información.</tt></dd></dl>
+
+<dl><dt><a name="Gini-find_gini"><strong>find_gini</strong></a>(self, *args)</dt><dd><tt>Encuentra&nbsp;la&nbsp;probabilidad&nbsp;de&nbsp;no&nbsp;clasificar&nbsp;correctamente&nbsp;a&nbsp;un&nbsp;estudiante.&nbsp;args[0]:&nbsp;Indices&nbsp;del&nbsp;dataset,&nbsp;args[1]:&nbsp;Posición&nbsp;del&nbsp;dataset,&nbsp;args[2]:&nbsp;Subconjunto&nbsp;del&nbsp;dataset&nbsp;aceptable.</tt></dd></dl>
+
+<dl><dt><a name="Gini-fix_rows"><strong>fix_rows</strong></a>(self, t_rows, f_rows)</dt><dd><tt>Arregla&nbsp;la&nbsp;impureza&nbsp;en&nbsp;caso&nbsp;simple.</tt></dd></dl>
+
+<dl><dt><a name="Gini-info_gain"><strong>info_gain</strong></a>(self, *args)</dt><dd><tt>Define&nbsp;la&nbsp;ganancia&nbsp;de&nbsp;<a href="#Gini">Gini</a>.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></tbody></table> </p><p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#ffc8d8">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#000000"><a name="Leaf">class <strong>Leaf</strong></a>(<a href="http://localhost:1234/builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan="2"><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan="2"><tt><a href="#Leaf">Leaf</a>(positions_of_a_dataset,&nbsp;question)<br>
+&nbsp;<br>
+Define&nbsp;la&nbsp;predicción&nbsp;de&nbsp;éxito.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Leaf-__init__"><strong>__init__</strong></a>(self, positions_of_a_dataset, question)</dt><dd><tt>Guarda&nbsp;la&nbsp;cantidad&nbsp;de&nbsp;personas&nbsp;que&nbsp;pasaron&nbsp;y&nbsp;las&nbsp;que&nbsp;no.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></tbody></table> </p><p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#ffc8d8">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#000000"><a name="Miscelaneous">class <strong>Miscelaneous</strong></a>(<a href="http://localhost:1234/builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan="2"><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan="2"><tt>Utiliza&nbsp;métodos&nbsp;variados&nbsp;para&nbsp;que&nbsp;cualquier&nbsp;otra&nbsp;clase&nbsp;pueda&nbsp;acceder&nbsp;a&nbsp;ellos.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Miscelaneous-contains"><strong>contains</strong></a>(self, dataset, value)</dt><dd><tt>Busca&nbsp;si&nbsp;en&nbsp;una&nbsp;base&nbsp;de&nbsp;datos&nbsp;se&nbsp;encuentra&nbsp;el&nbsp;valor&nbsp;deseado.<br>
+dataset:&nbsp;Base&nbsp;de&nbsp;datos&nbsp;en&nbsp;la&nbsp;que&nbsp;se&nbsp;busca.<br>
+value:&nbsp;Valor&nbsp;a&nbsp;buscar.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-exact_precis_sensib"><strong>exact_precis_sensib</strong></a>(self, threw_val, real_val)</dt><dd><tt>Exactitud,&nbsp;Precisión&nbsp;y&nbsp;Sensibilidad&nbsp;del&nbsp;modelo.<br>
+threw_val:&nbsp;Valores&nbsp;predichos&nbsp;por&nbsp;un&nbsp;árbol.<br>
+real_val:&nbsp;Valores&nbsp;reales&nbsp;de&nbsp;un&nbsp;dataframe.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-fill_rows"><strong>fill_rows</strong></a>(self, start, end)</dt><dd><tt>Toma&nbsp;los&nbsp;índices&nbsp;del&nbsp;dataset&nbsp;principal.&nbsp;Servirá&nbsp;para&nbsp;acoger&nbsp;el&nbsp;código&nbsp;a&nbsp;la&nbsp;partición/pérdida&nbsp;de&nbsp;algunos&nbsp;índices.<br>
+start:&nbsp;Indice&nbsp;de&nbsp;inicio&nbsp;del&nbsp;llenado&nbsp;de&nbsp;la&nbsp;cola.<br>
+end:&nbsp;Indice&nbsp;final&nbsp;del&nbsp;llenado&nbsp;de&nbsp;la&nbsp;cola</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-find_average"><strong>find_average</strong></a>(self, data)</dt><dd><tt>Encuentra&nbsp;el&nbsp;promedio&nbsp;de&nbsp;una&nbsp;cola.<br>
+:param&nbsp;data:&nbsp;Elementos&nbsp;a&nbsp;promediar.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-get_keys"><strong>get_keys</strong></a>(self)</dt><dd><tt>Devuelve&nbsp;todos&nbsp;los&nbsp;valores&nbsp;que&nbsp;se&nbsp;guardan&nbsp;en&nbsp;la&nbsp;generación&nbsp;de&nbsp;llaves&nbsp;del&nbsp;diccionario&nbsp;con&nbsp;las&nbsp;posibles&nbsp;colas&nbsp;a&nbsp;partir.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-is_numeric"><strong>is_numeric</strong></a>(self, value)</dt><dd><tt>Pregunta&nbsp;si&nbsp;un&nbsp;valor&nbsp;que&nbsp;se&nbsp;le&nbsp;pasa&nbsp;es&nbsp;tipo&nbsp;numérico.<br>
+:param&nbsp;value:&nbsp;Valor&nbsp;de&nbsp;comparación.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-match"><strong>match</strong></a>(self, possible_values, value)</dt><dd><tt>Encuentra&nbsp;si&nbsp;dos&nbsp;valores&nbsp;son&nbsp;iguales&nbsp;o&nbsp;si&nbsp;uno&nbsp;contiene&nbsp;al&nbsp;otro.<br>
+possible_values:&nbsp;Contenedor&nbsp;de&nbsp;los&nbsp;valores&nbsp;aceptados.<br>
+value:&nbsp;Valor&nbsp;a&nbsp;buscar.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-not_rand_success"><strong>not_rand_success</strong></a>(self, row, tree, success)</dt><dd><tt>Auxiliar&nbsp;en&nbsp;el&nbsp;cual&nbsp;los&nbsp;éxitos&nbsp;son&nbsp;determinísticos&nbsp;por&nbsp;un&nbsp;índice.<br>
+row:&nbsp;Fila&nbsp;a&nbsp;la&nbsp;cual&nbsp;se&nbsp;le&nbsp;revisará&nbsp;si&nbsp;fue&nbsp;exitoso.<br>
+tree:&nbsp;Árbol&nbsp;con&nbsp;las&nbsp;condiciones&nbsp;de&nbsp;predicción.<br>
+success:&nbsp;Elementos&nbsp;ya&nbsp;conocidos&nbsp;sobre&nbsp;si&nbsp;un&nbsp;estudiante&nbsp;fue&nbsp;exitoso&nbsp;o&nbsp;no.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-rand_success"><strong>rand_success</strong></a>(self, row, tree, success)</dt><dd><tt>Auxiliar&nbsp;en&nbsp;el&nbsp;cual&nbsp;los&nbsp;éxitos&nbsp;son&nbsp;aleatorios&nbsp;dentro&nbsp;de&nbsp;un&nbsp;intervalo.<br>
+row:&nbsp;Fila&nbsp;a&nbsp;la&nbsp;cual&nbsp;se&nbsp;le&nbsp;revisará&nbsp;si&nbsp;fue&nbsp;exitoso.<br>
+tree:&nbsp;Árbol&nbsp;con&nbsp;las&nbsp;condiciones&nbsp;de&nbsp;predicción.<br>
+success:&nbsp;Elementos&nbsp;ya&nbsp;conocidos&nbsp;sobre&nbsp;si&nbsp;un&nbsp;estudiante&nbsp;fue&nbsp;exitoso&nbsp;o&nbsp;no.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-split_matrix"><strong>split_matrix</strong></a>(self, dataset_indices, question)</dt><dd><tt>Divide&nbsp;una&nbsp;cola&nbsp;en&nbsp;dos&nbsp;nuevas&nbsp;las&nbsp;cuales&nbsp;tendrán&nbsp;los&nbsp;datos&nbsp;que&nbsp;sean&nbsp;iguales&nbsp;a&nbsp;una&nbsp;condición&nbsp;deseada.<br>
+dataset_indices:&nbsp;Cola&nbsp;a&nbsp;separar.<br>
+question:&nbsp;Pregunta&nbsp;o&nbsp;decisión&nbsp;con&nbsp;la&nbsp;cual&nbsp;se&nbsp;separarán&nbsp;los&nbsp;datos.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-successful"><strong>successful</strong></a>(self, Dataset, tree, random)</dt><dd><tt>Predice&nbsp;con&nbsp;respecto&nbsp;a&nbsp;unas&nbsp;condiciones&nbsp;si&nbsp;los&nbsp;elementos&nbsp;en&nbsp;una&nbsp;base&nbsp;de&nbsp;datos&nbsp;fueron&nbsp;bien&nbsp;elegidos&nbsp;o&nbsp;no.<br>
+Dataset:&nbsp;Base&nbsp;de&nbsp;datos&nbsp;para&nbsp;la&nbsp;comparación.<br>
+tree:&nbsp;Tiene&nbsp;las&nbsp;condiciones&nbsp;y&nbsp;las&nbsp;probabilidades&nbsp;de&nbsp;éxito.<br>
+random:&nbsp;Método&nbsp;que&nbsp;se&nbsp;utilizará&nbsp;para&nbsp;escoger&nbsp;si&nbsp;un&nbsp;estudiante&nbsp;es&nbsp;exitoso&nbsp;o&nbsp;no.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-unique_values"><strong>unique_values</strong></a>(self, dataframe, column)</dt><dd><tt>Retorna&nbsp;los&nbsp;únicos&nbsp;posibles&nbsp;valores&nbsp;de&nbsp;una&nbsp;columna&nbsp;en&nbsp;un&nbsp;frame&nbsp;como&nbsp;lista.<br>
+dataframe:&nbsp;Dataframe&nbsp;al&nbsp;que&nbsp;pertenece&nbsp;una&nbsp;columna&nbsp;a&nbsp;convertir.<br>
+column:&nbsp;Columna&nbsp;a&nbsp;convertir.</tt></dd></dl>
+
+<dl><dt><a name="Miscelaneous-values_generator"><strong>values_generator</strong></a>(self)</dt><dd><tt>Genera&nbsp;los&nbsp;valores&nbsp;con&nbsp;los&nbsp;que&nbsp;se&nbsp;encontrará&nbsp;posteriormente&nbsp;la&nbsp;impureza&nbsp;de&nbsp;<a href="#Gini">Gini</a>.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></tbody></table> </p><p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#ffc8d8">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#000000"><a name="Node">class <strong>Node</strong></a>(<a href="http://localhost:1234/builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan="2"><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan="2"><tt><a href="#Node">Node</a>(question,&nbsp;true_branch,&nbsp;false_branch)<br>
+&nbsp;<br>
+Define&nbsp;los&nbsp;nodos&nbsp;de&nbsp;decisión.<br>
+Nodo&nbsp;de&nbsp;decisión:&nbsp;Está&nbsp;hecho&nbsp;para&nbsp;guardar&nbsp;solamente&nbsp;una&nbsp;pregunta&nbsp;y&nbsp;los&nbsp;hijos.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Node-__init__"><strong>__init__</strong></a>(self, question, true_branch, false_branch)</dt><dd><tt>Constructor.<br>
+question:&nbsp;Pregunta&nbsp;con&nbsp;la&nbsp;cual&nbsp;se&nbsp;generará&nbsp;la&nbsp;condición.<br>
+true_branch:&nbsp;Datos&nbsp;que&nbsp;cumplen&nbsp;con&nbsp;la&nbsp;condición.<br>
+false_branch:&nbsp;Datos&nbsp;que&nbsp;no&nbsp;cumplen&nbsp;con&nbsp;la&nbsp;condición.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></tbody></table> </p><p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#ffc8d8">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#000000"><a name="Question">class <strong>Question</strong></a>(<a href="http://localhost:1234/builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan="2"><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan="2"><tt><a href="#Question">Question</a>(*args)<br>
+&nbsp;<br>
+Define&nbsp;la&nbsp;mejor&nbsp;pregunta.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Question-__init__"><strong>__init__</strong></a>(self, *args)</dt><dd><tt>Constructor.&nbsp;Acepta&nbsp;dos&nbsp;argumentos,&nbsp;los&nbsp;cuales&nbsp;son&nbsp;una&nbsp;pregunta&nbsp;y&nbsp;la&nbsp;columna&nbsp;en&nbsp;la&nbsp;cual&nbsp;se&nbsp;encuentra&nbsp;la&nbsp;pregunta.</tt></dd></dl>
+
+<dl><dt><a name="Question-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Imprime&nbsp;la&nbsp;pregunta.</tt></dd></dl>
+
+<dl><dt><a name="Question-match"><strong>match</strong></a>(self, row_to_work)</dt><dd><tt>Con&nbsp;respecto&nbsp;a&nbsp;una&nbsp;matriz,&nbsp;determina&nbsp;si&nbsp;el&nbsp;nuevo&nbsp;valor&nbsp;es&nbsp;igual&nbsp;al&nbsp;valor&nbsp;deseado.<br>
+row_to_work:&nbsp;Fila&nbsp;con&nbsp;la&nbsp;cual&nbsp;se&nbsp;va&nbsp;a&nbsp;trabajar&nbsp;(La&nbsp;columna&nbsp;ya&nbsp;es&nbsp;conocida&nbsp;por&nbsp;el&nbsp;constructor).</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></tbody></table> </p><p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#ffc8d8">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#000000"><a name="ReadFile">class <strong>ReadFile</strong></a>(<a href="http://localhost:1234/builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan="2"><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan="2"><tt><a href="#ReadFile">ReadFile</a>(*args)<br>
+&nbsp;<br>
+Clase&nbsp;utilizada&nbsp;para&nbsp;la&nbsp;lectura&nbsp;de&nbsp;archivos&nbsp;y&nbsp;su&nbsp;filtrado.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ReadFile-__init__"><strong>__init__</strong></a>(self, *args)</dt><dd><tt>Constructor&nbsp;que&nbsp;asigna&nbsp;el&nbsp;valor&nbsp;de&nbsp;la&nbsp;ruta&nbsp;y&nbsp;el&nbsp;signo&nbsp;separador&nbsp;del&nbsp;archivo&nbsp;csv.</tt></dd></dl>
+
+<dl><dt><a name="ReadFile-read_file"><strong>read_file</strong></a>(self)</dt><dd><tt>Método&nbsp;que&nbsp;lee&nbsp;un&nbsp;archivo&nbsp;csv&nbsp;con&nbsp;la&nbsp;ruta&nbsp;indicada&nbsp;en&nbsp;los&nbsp;parámetros&nbsp;y&nbsp;retorna&nbsp;un&nbsp;dataframe&nbsp;filtrado.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></tbody></table> </p><p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#ffc8d8">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#000000"><a name="Tree">class <strong>Tree</strong></a>(<a href="http://localhost:1234/builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan="2"><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan="2"><tt><a href="#Tree-Tree">Tree</a>(height)<br>
+&nbsp;<br>
+Generador&nbsp;de&nbsp;árbol.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Tree-Tree"><strong>Tree</strong></a>(self, indices)</dt><dd><tt>Crea&nbsp;el&nbsp;árbol.<br>
+indices:&nbsp;Filas&nbsp;iniciales&nbsp;del&nbsp;árbol.</tt></dd></dl>
+
+<dl><dt><a name="Tree-TreeToList"><strong>TreeToList</strong></a>(self, node)</dt><dd><tt>Toma&nbsp;un&nbsp;árbol&nbsp;o&nbsp;nodo&nbsp;inicial&nbsp;para&nbsp;generar&nbsp;una&nbsp;matriz&nbsp;con&nbsp;sus&nbsp;datos.<br>
+node:&nbsp;Árbol&nbsp;o&nbsp;nodo&nbsp;inicial.</tt></dd></dl>
+
+<dl><dt><a name="Tree-__init__"><strong>__init__</strong></a>(self, height)</dt><dd><tt>Constructor.<br>
+height:&nbsp;Altura&nbsp;máxima&nbsp;del&nbsp;árbol.</tt></dd></dl>
+
+<dl><dt><a name="Tree-auxTTL"><strong>auxTTL</strong></a>(self, node, list_nodes)</dt><dd><tt>Auxiliar&nbsp;de&nbsp;TreeToList.<br>
+node:&nbsp;Nodo&nbsp;inicial.<br>
+list_nodes:&nbsp;Lista&nbsp;con&nbsp;todos&nbsp;los&nbsp;nodos&nbsp;de&nbsp;un&nbsp;árbol.</tt></dd></dl>
+
+<dl><dt><a name="Tree-auxTree"><strong>auxTree</strong></a>(self, indices, limit)</dt><dd><tt>Auxiliar&nbsp;de&nbsp;la&nbsp;creación&nbsp;del&nbsp;árbol.<br>
+indices:&nbsp;Filas&nbsp;actuales&nbsp;del&nbsp;nodo.<br>
+limit:&nbsp;Altura&nbsp;máxima.</tt></dd></dl>
+
+<dl><dt><a name="Tree-print_tree"><strong>print_tree</strong></a>(self, node, spacing='')</dt><dd><tt>Imprime&nbsp;un&nbsp;árbol.<br>
+node:&nbsp;Nodo&nbsp;inicial.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></tbody></table></p></td></tr></tbody></table></p><p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#eeaa77">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#ffffff"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-main"><strong>main</strong></a>()</dt></dl>
+ <dl><dt><a name="-setDs"><strong>setDs</strong></a>(rf)</dt><dd><tt>Permite&nbsp;cambiar&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;y&nbsp;el&nbsp;título&nbsp;de&nbsp;las&nbsp;columnas.<br>
+rf:&nbsp;Nuevo&nbsp;readfile.</tt></dd></dl>
+</td></tr></tbody></table></p><p>
+<table summary="section" width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody><tr bgcolor="#55aa55">
+<td colspan="3" valign="bottom">&nbsp;<br>
+<font face="helvetica, arial" color="#ffffff"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Dataset</strong> =    estu_depto_reside.1                          ...5.0             B+      1
+
+[15 rows x 12 columns]<br>
+<strong>Headers</strong> = ['estu_depto_reside.1', 'fami_pisoshogar', 
+'cole_naturaleza', 'punt_lenguaje', 'punt_matematicas', 'punt_biologia',
+ 'punt_quimica', 'punt_fisica', 'punt_ciencias_sociales', 
+'punt_filosofia', 'desemp_ingles', 'exito']<br>
+<strong>ValuesGen</strong> = [['BOGOTA', 'ANTIOQUIA', 'BOYACA'], 
+['Madera pulida, baldosa, tableta, mármol, alfombra'], ['ACADEMICO', 
+'TECNICO/ACADEMICO'], [49.6], [52.93333333333333], [52.2], 
+[49.13333333333333], [47.8], [48.53333333333333], [45.53333333333333], 
+['A2', 'B1', 'B+']]<br>
+<strong>misc</strong> = &lt;DecisionTrees.Miscelaneous object&gt;<br>
+<strong>pth</strong> = 'proof.csv'</td></tr></tbody></table></p></div>
+</body></html>
